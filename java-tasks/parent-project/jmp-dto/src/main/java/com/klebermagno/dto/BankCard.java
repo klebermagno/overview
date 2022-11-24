@@ -6,6 +6,8 @@ public class BankCard {
 
     private User user;
 
+    public BankCard(){}
+
     public BankCard(String number, User user) {
         this.number = number;
         this.user = user;
