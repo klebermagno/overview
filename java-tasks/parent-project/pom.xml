@@ -14,11 +14,11 @@
   </properties>
   <packaging>pom</packaging>
   <modules>
-    <module>jmp-dto</modules>
-    <module>jmp-bank-api</modules>
+    <module>jmp-bank-api</module>
+    <module>jmp-service-api</module>
     <module>jmp-cloud-bank-impl</module>
     <module>jmp-cloud-service-impl</module>
-    <module>jmp-service-api</module>
+    <module>jmp-dto</module>
   </modules>
   <dependencies>
     <dependency>
@@ -73,14 +73,5 @@
       </plugins>
     </pluginManagement>
   </build>
-<dependencyManagement>
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>5.3.16</version>
-        </dependency>
-        //...
-    </dependencies>
-</dependencyManagement>
+
 </project>
