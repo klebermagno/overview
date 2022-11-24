@@ -14,7 +14,7 @@ public class Subscription {
     }
 
     public String getBankCard() {
-        return bankcard;
+        return bankCard;
     }
 
     public void setBankCard(String bankCard) {
