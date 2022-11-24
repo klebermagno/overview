@@ -60,6 +60,9 @@ mvn archetype:generate -DgroupId=com.klebermagno -DartifactId=sub-module
     LocalDate startDate;
 ```
 
+# Module 
+
+ Collection of Code, Data, and some Resources. It is a set of related Packages, Types (classes, abstract classes, interfaces etc) with Code & Data and Resources. Each Module contains only a set of related code and data to support Single Responsibility (Functionality) Principle (SRP).
 
 **3. Extend BankCard class with :**
 
