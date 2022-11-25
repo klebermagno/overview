@@ -1,11 +1,8 @@
 package com.klebermagno.api.impl;
 
 import com.klebermagno.api.Bank;
-import com.klebermagno.dto.BankCard;
-import com.klebermagno.dto.BankCardType;
-import com.klebermagno.dto.CreditBankCard;
-import com.klebermagno.dto.DebitBankCard;
-import com.klebermagno.dto.User;
+import com.klebermagno.dto.*;
+
 import java.util.Random;
 
 public class BankImpl implements Bank {
@@ -13,14 +10,13 @@ public class BankImpl implements Bank {
   private static Random random = new Random(System.currentTimeMillis());
 
   public BankCard createBankCard(User user, BankCardType bankCardType) {
-    String number = generate();
     BankCard bankCard = null;
     switch (bankCardType) {
       case CREDIT:
-        bankCard = new CreditBankCard(number, user);
+        bankCard  = CreditBankCard.builder().number(generate()).user(user).build();
         break;
       case DEBIT:
-        bankCard = new DebitBankCard(number, user);
+        bankCard = DebitBankCard.builder().number(generate()).user(user).build();
         break;
       default:
         break;

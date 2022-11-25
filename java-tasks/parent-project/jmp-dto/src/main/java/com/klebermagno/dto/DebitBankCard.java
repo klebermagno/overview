@@ -1,9 +1,10 @@
 package com.klebermagno.dto;
 
+import lombok.experimental.SuperBuilder;
+import lombok.Data;
+
+@Data
+@SuperBuilder
 public class DebitBankCard extends BankCard {
-    public DebitBankCard(){}
-    
-        public DebitBankCard(String number, User user) {
-        super(number,user);
-    }
+
 }

@@ -1,10 +1,10 @@
 package com.klebermagno.dto;
 
+import lombok.Data;
+import lombok.experimental.SuperBuilder;
+
+@Data
+@SuperBuilder
 public class CreditBankCard extends BankCard {
 
-    public CreditBankCard() {}
-
-    public CreditBankCard(String number, User user) {
-        super(number,user);
-    }
 }

@@ -10,7 +10,7 @@ public interface BankService {
   
   public void subscribe(BankCard b);
 
-  public Optional<Subscription> getSubscriptionByBankCardNumber(String s);
+  public Optional<Subscription> getSubscriptionByBankCardNumber(String number);
   
   public List<User> getAllUsers();
 }

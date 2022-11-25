@@ -1,7 +1,10 @@
 package com.klebermagno.dto;
 
 import java.time.LocalDate;
-
+import lombok.Data;
+import lombok.Builder;
+@Data
+@Builder
 public class User {
 
     private String name;

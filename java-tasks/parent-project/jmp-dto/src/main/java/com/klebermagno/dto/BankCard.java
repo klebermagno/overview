@@ -1,31 +1,13 @@
 package com.klebermagno.dto;
 
+import lombok.experimental.SuperBuilder;
+import lombok.Data;
+@Data
+@SuperBuilder
 public class BankCard {
     
     private String number;
 
     private User user;
 
-    public BankCard(){}
-
-    public BankCard(String number, User user) {
-        this.number = number;
-        this.user = user;
-    }
-
-    public String getNumber() {
-        return number;
-    }
-
-    public void setNumber(String number ) {
-        this.number = number;
-    }
-
-    public User getUser() {
-        return this.user;
-    }
-
-    public void setUser( User user){
-        this.user = user;
-    }
 }
