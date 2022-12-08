@@ -1,4 +1,4 @@
-package com.klebermagno;
+package com.klebermagno.application;
 
 /**
  * Hello world!

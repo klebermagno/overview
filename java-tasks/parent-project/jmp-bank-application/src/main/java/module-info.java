@@ -1,5 +1,4 @@
 module com.klebermagno.application {
-    requires com.klebermagno.dto;
-    requires com.klenermagno.serviceimpl;
+    requires com.klebermagno.serviceimpl;
     exports com.klebermagno.application;
 }

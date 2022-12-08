@@ -21,7 +21,6 @@
     <module>jmp-cloud-bank-impl</module>
     <module>jmp-service-api</module>
     <module>jmp-cloud-service-impl</module>
-        
     <module>jmp-bank-application</module>
       
   </modules>

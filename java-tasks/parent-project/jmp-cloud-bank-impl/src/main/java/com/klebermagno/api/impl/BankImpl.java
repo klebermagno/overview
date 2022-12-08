@@ -34,7 +34,7 @@ public class BankImpl implements Bank {
       builder.append(digit);
     }
     // Do the Luhn algorithm to generate the check digit.
-    int checkDigit = getCheckDigit(builder.toString());
+    var checkDigit = getCheckDigit(builder.toString());
     builder.append(checkDigit);
     return builder.toString();
   }
