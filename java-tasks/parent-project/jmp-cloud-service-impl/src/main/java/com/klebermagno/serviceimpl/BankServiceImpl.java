@@ -27,12 +27,12 @@ public class BankServiceImpl implements BankService {
   }
 
   @Override
-  public Optional<Subscription> getSubscriptionByBankCardNumber(String number) {
+  public Subscription getSubscriptionByBankCardNumber(String number) {
     return subscriptions
       .stream()
       .filter(subscribe -> subscribe.getBankCard().equals(number))
-      .findAny();
-     // .orElseThrow(() -> new NumberDontMatchException());
+      .findAny()
+            .orElseThrow(IllegalArgumentException::new);
   }
 
   @Override

@@ -36,9 +36,9 @@ public class BankServiceImplTest {
 
 
         service.subscribe(bc1);
-        Optional<Subscription> subscriptionOptional =
+        Subscription subscription =
                 service.getSubscriptionByBankCardNumber("1234");
-        assertEquals(bc1.getNumber(), subscriptionOptional.get().getBankCard());
+        assertEquals(bc1.getNumber(), subscription.getBankCard());
 
     }
 

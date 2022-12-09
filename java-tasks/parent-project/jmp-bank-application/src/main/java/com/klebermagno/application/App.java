@@ -10,7 +10,7 @@ import javax.inject.Inject;
 import javax.inject.Qualifier;
 import java.time.LocalDate;
 import java.util.Optional;
-
+import java.util.ServiceLoader;
 import com.klebermagno.dto.BankCard;
 import com.klebermagno.dto.BankCardType;
 import com.klebermagno.dto.User;
@@ -26,12 +26,10 @@ import com.klebermagno.api.impl.BankImpl;
 public class App {
 
   private final Bank bank;
-  private final BankService service;
 
   @Inject
-  App(@ProviderModule.TheBank Bank bank, @ProviderModule.TheBankService BankService service){
+  App(@ProviderModule.TheBank Bank bank){
     this.bank = bank;
-    this.service = service;
   }
 
   public static void main(String[] args) {
@@ -49,6 +47,10 @@ public class App {
  */
   public void start(){
 
+    BankService service = ServiceLoader
+            .load(BankService.class)
+            .findFirst()
+            .orElseThrow(IllegalArgumentException::new);
     User user1 = new User("José", "Silva", LocalDate.of(2020, 1, 8));
     User user2 = User
       .builder()
