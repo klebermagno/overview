@@ -8,7 +8,7 @@ import java.util.Random;
 
 public class BankImpl implements Bank {
 
-  private static Random random = new Random(System.currentTimeMillis());
+  private static final Random random = new Random(System.currentTimeMillis());
 
   public BankCard createBankCard(User user, BankCardType bankCardType) {
     BankCard bankCard = null;

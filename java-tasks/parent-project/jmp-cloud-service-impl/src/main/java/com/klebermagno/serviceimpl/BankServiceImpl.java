@@ -5,19 +5,15 @@ import com.klebermagno.dto.Subscription;
 import com.klebermagno.dto.User;
 import com.klebermagno.service.BankService;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class BankServiceImpl implements BankService {
 
-  private Map<String, BankCard> bankCards = new HashMap<String, BankCard>();
-  private List<Subscription> subscriptions = new ArrayList<Subscription>();
-  private List<User> users = new ArrayList<User>();
+  private final Map<String, BankCard> bankCards = new HashMap<>();
+  private final List<Subscription> subscriptions = new ArrayList<>();
+  private final List<User> users = new ArrayList<>();
 
   @Override
   public void subscribe(BankCard bankCard) {
@@ -46,13 +42,12 @@ public class BankServiceImpl implements BankService {
 
   @Override
   public double getAverageUsersAge() {
-    return (int) this.getAllUsers()
+    OptionalDouble optionalAvarage = this.getAllUsers()
       .stream()
-      .mapToInt(user -> {
-        return (int) LocalDate.now().getYear() - user.getBirthday().getYear();
-      })
-      .average()
-      .getAsDouble();
+      .mapToInt(user -> LocalDate.now().getYear() - user.getBirthday().getYear())
+      .average();
+    optionalAvarage.orElseThrow();
+    return optionalAvarage.getAsDouble();
   }
 
   @Override

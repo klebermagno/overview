@@ -4,13 +4,12 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import com.google.inject.Key;
 import com.google.inject.Provides;
 import java.lang.annotation.Retention;
 import javax.inject.Inject;
 import javax.inject.Qualifier;
-import javax.inject.Inject;
 import java.time.LocalDate;
+import java.util.Optional;
 
 import com.klebermagno.dto.BankCard;
 import com.klebermagno.dto.BankCardType;
@@ -26,8 +25,8 @@ import com.klebermagno.api.impl.BankImpl;
  */
 public class App {
 
-  private Bank bank;
-  private BankService service;
+  private final Bank bank;
+  private final BankService service;
 
   @Inject
   App(@ProviderModule.TheBank Bank bank, @ProviderModule.TheBankService BankService service){
@@ -65,8 +64,12 @@ public class App {
     service.subscribe(bc2);
     service.subscribe(bc3);
     
-    User  u = service.getAllUsers().stream().filter(user-> user.getName().equals("José")).findAny().get();
-    System.out.println(u);
+    Optional<User> optional = service.getAllUsers()
+            .stream()
+            .filter(user-> user.getName().equals("José"))
+            .findAny();
+    optional.orElseThrow();
+    System.out.println(optional.get());
   
   }
 

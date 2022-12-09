@@ -10,26 +10,26 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class BankServiceImplTest {
-    private User user1 = User.builder()
+    private final User user1 = User.builder()
                     .name("Name-1")
                     .surname("Surname-1")
-                    .birthday(LocalDate.of(1981,07,31))
+                    .birthday(LocalDate.of(1981,7,31))
                     .build();
-    private BankCard bc1 = BankCard.builder()
+    private final BankCard bc1 = BankCard.builder()
             .number("1234")
             .user(user1)
             .build();
-    private User user2 = User.builder()
+    private final User user2 = User.builder()
             .name("Name-2")
                             .surname("Surname-2")
                             .birthday(LocalDate.now())
             .build();
 
-    private BankCard bc2 = BankCard.builder()
+    private final BankCard bc2 = BankCard.builder()
             .number("5678")
             .user(user2)
             .build();
-    private BankServiceImpl service = new BankServiceImpl();
+    private final BankServiceImpl service = new BankServiceImpl();
 
     @Test
     public void shouldSubscribeAndGetSubscriptionByBankCardNumber(){
