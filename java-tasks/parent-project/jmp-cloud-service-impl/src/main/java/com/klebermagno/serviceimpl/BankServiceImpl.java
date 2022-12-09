@@ -57,7 +57,7 @@ public class BankServiceImpl implements BankService {
 
   @Override
   public boolean isPayableUser(User user) {
-    int age = (int) (user.getBirthday().getYear() - LocalDate.now().getYear());
+    int age = (int) (LocalDate.now().getYear() - user.getBirthday().getYear());
     return (age >= 18);
   }
 
