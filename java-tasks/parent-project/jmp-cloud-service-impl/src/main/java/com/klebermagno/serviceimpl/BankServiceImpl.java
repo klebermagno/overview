@@ -36,7 +36,7 @@ public class BankServiceImpl implements BankService {
       .stream()
       .filter(subscribe -> subscribe.getBankCard().equals(number))
       .findAny();
-      //.orElseThrow(new NumberDontMatchException());
+     // .orElseThrow(() -> new NumberDontMatchException());
   }
 
   @Override
