@@ -5,6 +5,7 @@ import com.klebermagno.dto.*;
 
 import java.util.Random;
 
+
 public class BankImpl implements Bank {
 
   private static Random random = new Random(System.currentTimeMillis());
