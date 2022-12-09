@@ -14,7 +14,7 @@ import com.klebermagno.api.impl.BankImpl;
 public class App {
 
   public static void main(String[] args) {
-    User user = new User("José", "Silva", LocalDate.of(2020, 1, 8));
+    User user1 = new User("José", "Silva", LocalDate.of(2020, 1, 8));
     User user2 = User
       .builder()
       .name("Thrum")
@@ -22,8 +22,8 @@ public class App {
       .birthday(LocalDate.of(2019, 1, 8)).build();
     BankImpl bank = new BankImpl();
 
-    BankCard bc1 = bank.createBankCard(user, BankCardType.CREDIT);
-    BankCard bc2 = bank.createBankCard(user, BankCardType.DEBIT);
+    BankCard bc1 = bank.createBankCard(user1, BankCardType.CREDIT);
+    BankCard bc2 = bank.createBankCard(user1, BankCardType.DEBIT);
     BankCard bc3 = bank.createBankCard(user2, BankCardType.CREDIT);
 
     BankServiceImpl service = new BankServiceImpl();
