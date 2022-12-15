@@ -4,14 +4,13 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import com.google.inject.Key;
 import com.google.inject.Provides;
 import java.lang.annotation.Retention;
 import javax.inject.Inject;
 import javax.inject.Qualifier;
-import javax.inject.Inject;
 import java.time.LocalDate;
-
+import java.util.Optional;
+import java.util.ServiceLoader;
 import com.klebermagno.dto.BankCard;
 import com.klebermagno.dto.BankCardType;
 import com.klebermagno.dto.User;
@@ -26,13 +25,11 @@ import com.klebermagno.api.impl.BankImpl;
  */
 public class App {
 
-  private Bank bank;
-  private BankService service;
+  private final Bank bank;
 
   @Inject
-  App(@ProviderModule.TheBank Bank bank, @ProviderModule.TheBankService BankService service){
+  App(@ProviderModule.TheBank Bank bank){
     this.bank = bank;
-    this.service = service;
   }
 
   public static void main(String[] args) {
@@ -50,6 +47,10 @@ public class App {
  */
   public void start(){
 
+    BankService service = ServiceLoader
+            .load(BankService.class)
+            .findFirst()
+            .orElseThrow(IllegalArgumentException::new);
     User user1 = new User("José", "Silva", LocalDate.of(2020, 1, 8));
     User user2 = User
       .builder()
@@ -65,8 +66,12 @@ public class App {
     service.subscribe(bc2);
     service.subscribe(bc3);
     
-    User  u = service.getAllUsers().stream().filter(user-> user.getName().equals("José")).findAny().get();
-    System.out.println(u);
+    Optional<User> optional = service.getAllUsers()
+            .stream()
+            .filter(user-> user.getName().equals("José"))
+            .findAny();
+    optional.orElseThrow();
+    System.out.println(optional.get());
   
   }
 

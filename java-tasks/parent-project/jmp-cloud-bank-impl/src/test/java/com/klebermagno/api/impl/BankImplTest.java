@@ -8,12 +8,12 @@ import org.junit.jupiter.api.Test;
 
 
 public class BankImplTest {
-    
+    private final User user = new User("José", "Silva",
+            LocalDate.of(2020, 1, 8));
     @Test
     public void shouldCreateACreditBankCard()
     {
         BankImpl bankCardImpl = new BankImpl();
-        User user = new User("José", "Silva", LocalDate.of(2020, 1, 8));
         BankCard bankCard = bankCardImpl.createBankCard(user, BankCardType.CREDIT);
         assertTrue( bankCard instanceof CreditBankCard );
 
@@ -23,7 +23,6 @@ public class BankImplTest {
     public void shouldCreateADebitBankCard()
     {
         BankImpl bankCardImpl = new BankImpl();
-        User user = new User("José", "Silva", LocalDate.of(2020, 1, 8));
         BankCard bankCard = bankCardImpl.createBankCard(user, BankCardType.DEBIT);
         assertTrue( bankCard instanceof DebitBankCard );
 
