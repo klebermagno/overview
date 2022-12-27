@@ -1,5 +1,3 @@
 package com.klebermagno.algorithms;
 
-public class BinarySearch {
-    
-}
+public class BinaryTree {}
