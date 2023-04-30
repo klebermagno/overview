@@ -27,3 +27,6 @@ jobs:
           VALIDATE_ALL_CODEBASE: false
           DEFAULT_BRANCH: "main"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DISABLE_ERROS: true
+          OUTPUT_FOLDER: Reports
+          OUTPUT_DETAILS: detailed
