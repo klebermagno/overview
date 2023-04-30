@@ -12,6 +12,8 @@
     <lombok.version>1.18.24</lombok.version> 
     <junit.version>5.8.2</junit.version>
     <mainClass>com.klebermagno.App</mainClass>
+    <sonar.organization>klebermagno</sonar.organization>
+    <sonar.host.url>https://sonarcloud.io</sonar.host.url>
   </properties>
   <packaging>pom</packaging>
   <modules>
